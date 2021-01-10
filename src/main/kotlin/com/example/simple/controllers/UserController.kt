@@ -1,6 +1,6 @@
 package com.example.simple.controllers
 
-import com.example.simple.models.User
+import com.example.simple.models.GUser
 import com.example.simple.repositories.UserRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.data.repository.findByIdOrNull
@@ -14,39 +14,42 @@ class UserController {
     @Autowired
     private val repository: UserRepository? = null
 
+    @CrossOrigin
     @GetMapping("/getAll")
-    fun getAll(): MutableIterable<User> {
+    fun getAll(): MutableIterable<GUser> {
 
         return repository!!.findAll()
 
     }
 
+    @CrossOrigin
     @GetMapping("/get")
-    fun get(@RequestParam id: Long): User? {
+    fun get(@RequestParam id: String): GUser? {
 
         return repository!!.findByIdOrNull(id)
 
     }
 
+    @CrossOrigin
     @PostMapping("/post")
-    fun post(@RequestBody user: User): User {
-
-        repository!!.save(user)
-        return user
+    fun post(@RequestBody gUser: GUser): GUser {
+        repository!!.save(gUser)
+        return gUser
 
     }
 
+    @CrossOrigin
     @DeleteMapping("/delete")
-    fun delete(@RequestParam id: Long): User? {
+    fun delete(@RequestParam id: String): GUser? {
 
-        val user: User? = repository!!.findByIdOrNull(id)
-        if (user != null) {
+        val gUser: GUser? = repository!!.findByIdOrNull(id)
+        if (gUser != null) {
 
-            repository.delete(user)
+            repository.delete(gUser)
 
         }
 
-        return user
+        return gUser
     }
 
 }

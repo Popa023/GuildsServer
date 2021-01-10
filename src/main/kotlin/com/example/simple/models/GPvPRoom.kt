@@ -3,17 +3,22 @@ package com.example.simple.models
 import javax.persistence.*
 
 @Entity
-class GRoom {
+class GPvPRoom {
 
     @Id
     @GeneratedValue
     var id: Long? = null
-    var roomType: String? = null
-    var roomName: String? = null
+    var rname: String? = null
 
-    @OneToMany
-    var users: Set<User>? = null
+    @OneToOne
+    var rfirstplayer: GUser? = null
 
-    var turn: Long? = null
+    @OneToOne
+    var rsecondplayer: GUser? = null
+
+    var rturn: Int? = null
+    var rfinished: Boolean = false
+    var rdelete: Boolean = false
+    var rstartroom: Boolean = false
 
 }

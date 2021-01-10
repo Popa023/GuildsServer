@@ -1,4 +1,6 @@
 package com.example.simple.repositories
 
-interface EffectRepository {
-}
+import com.example.simple.models.GEffect
+import org.springframework.data.repository.CrudRepository
+
+interface EffectRepository: CrudRepository<GEffect, Long>

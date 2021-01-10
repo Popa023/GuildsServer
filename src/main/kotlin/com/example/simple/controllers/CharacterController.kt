@@ -14,6 +14,7 @@ class CharacterController {
     @Autowired
     private val repository: CharacterRepository? = null
 
+    @CrossOrigin
     @GetMapping("/getAll")
     fun getAll(): MutableIterable<GCharacter> {
 
@@ -21,6 +22,7 @@ class CharacterController {
 
     }
 
+    @CrossOrigin
     @GetMapping("/get")
     fun get(@RequestParam id: Long): GCharacter? {
 
@@ -28,6 +30,7 @@ class CharacterController {
 
     }
 
+    @CrossOrigin
     @PostMapping("/post")
     fun post(@RequestBody gCharacter: GCharacter): GCharacter {
 
@@ -36,6 +39,7 @@ class CharacterController {
 
     }
 
+    @CrossOrigin
     @DeleteMapping("/delete")
     fun delete(@RequestParam id: Long): GCharacter? {
 

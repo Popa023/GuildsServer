@@ -3,19 +3,20 @@ package com.example.simple.models
 import javax.persistence.*
 
 @Entity
-class User {
+class GUser {
 
     @Id
-    @GeneratedValue
-    var id: Long? = null
-    var userName: String? = null
-    var email: String? = null
-
+    var id: String? = null
+    var uname: String? = null
+    var uemail: String? = null
+    var ukingdom: String? = null
+    var ukingdomFavor: Long? = null
+    var uvictories: Long? = null
 
     @OneToOne(cascade = [CascadeType.ALL])
-    var gCharacter: GCharacter? = null
+    var uwarehouse: GWarehouse? = null
 
-    @ManyToMany
-    var userAchievements: Set<GAchievements>? = null
+    @OneToOne(cascade = [CascadeType.ALL])
+    var ucharacter: GCharacter? = null
 
 }
