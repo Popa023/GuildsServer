@@ -11,9 +11,11 @@ class User {
     var userName: String? = null
     var email: String? = null
 
+
     @OneToOne(cascade = [CascadeType.ALL])
     var gCharacter: GCharacter? = null
 
-
+    @ManyToMany
+    var userAchievements: Set<GAchievements>? = null
 
 }
